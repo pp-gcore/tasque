@@ -64,7 +64,7 @@ module Tasque
     
     def database_file=(path)
       if File.exists?(path)
-        @database = YAML.load(File.read(path)) || {}
+        @database = YAML.load(File.read(path), aliases: true) || {}
         @database_file = path
       end
     end
